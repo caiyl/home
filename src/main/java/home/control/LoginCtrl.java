@@ -7,6 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import home.domain.User;
+
 
 
 @Controller
@@ -19,9 +21,9 @@ public class LoginCtrl {
         return "/login";
     }
 	
-/*	@RequestMapping(value="/loginIn.do", method=RequestMethod.POST)
+	@RequestMapping(value="/loginIn.do", method=RequestMethod.POST)
     public String loginIn(@ModelAttribute  User user) {
         System.out.println(user.getUsername() + user.getPassword() );
 		return "/index";
-    }*/
+    }
 }
