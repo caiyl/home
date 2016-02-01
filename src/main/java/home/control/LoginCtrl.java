@@ -19,7 +19,7 @@ public class LoginCtrl {
 	@RequestMapping("/login.do")
     public String  login(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
         model.addAttribute("name", name);
-        System.out.println("hello Word----134----2------------------------");
+        System.out.println("hello Word----134----456------------------------");
         return "/login";
     }
 	
