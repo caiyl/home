@@ -1,13 +1,10 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8"
-	pageEncoding="UTF-8"%>
-<% String basePath = request.getScheme()+"://" +request.getServerName() + ":"+request.getServerPort() +request.getContextPath()+"/" ; %>
 <html>
 <!DOCTYPE html>
 <html>
 <head>
-<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 <meta http-equiv="viewport" content="width=device-width,initial-scale=1">
-<link rel="stylesheet" href="css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
 <style type="text/css">
 	body{
 		padding-top:50px;
@@ -21,7 +18,7 @@
 </head>
 <body>
 	<nav class="navbar navbar-default navbar-fixed-top" role="navigation">
-		<div class="container">
+		<div class="container" >
 			<div class="navbar-header">
 				<a href="#" class="navbar-brand">project name</a>
 			</div>
