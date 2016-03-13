@@ -43,7 +43,7 @@
 	<classpathentry kind="lib" path="activiti-libs/activiti-diagram-rest-5.13-sources.jar"/>
 	<classpathentry kind="lib" path="activiti-libs/activiti-diagram-rest-5.13.jar"/>
 	<classpathentry kind="lib" path="activiti-libs/activiti-engine-5.13-sources.jar"/>
-	<classpathentry kind="lib" path="activiti-libs/activiti-engine-5.13.jar"/>
+	<classpathentry kind="lib" path="activiti-libs/activiti-engine-5.13.jar" sourcepath="activiti-libs/activiti-engine-5.13-sources.jar"/>
 	<classpathentry kind="lib" path="activiti-libs/activiti-explorer-5.13-sources.jar"/>
 	<classpathentry kind="lib" path="activiti-libs/activiti-explorer-5.13.jar"/>
 	<classpathentry kind="lib" path="activiti-libs/activiti-json-converter-5.13-sources.jar"/>
