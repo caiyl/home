@@ -5,7 +5,7 @@ public class myQuick {
 		int[] array = {4,3,2,1,8,9};
 		array = sort(array);
 		for (int i : array) {
-			  
+			      
 		}
 	}
 	private static int[] sort(int [] array){
