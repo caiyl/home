@@ -1,7 +1,11 @@
 package cn.itcast.d_processVariables;
 
 import java.io.InputStream;
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
 import java.util.List;
+import java.util.Map;
 
 import org.activiti.engine.ProcessEngine;
 import org.activiti.engine.ProcessEngines;
@@ -49,11 +53,11 @@ ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 		/**与任务（正在执行）*/
 		TaskService taskService = processEngine.getTaskService();
 		//任务ID
-		String taskId = "2104";
+		String taskId = "1204";
 		/**一：设置流程变量，使用基本数据类型*/
-//		taskService.setVariableLocal(taskId, "请假天数", 5);//与任务ID绑定
-//		taskService.setVariable(taskId, "请假日期", new Date());
-//		taskService.setVariable(taskId, "请假原因", "回家探亲，一起吃个饭");
+		taskService.setVariableLocal(taskId, "请假天数", 5);//与任务ID绑定
+		taskService.setVariable(taskId, "请假日期", new Date());
+		taskService.setVariable(taskId, "请假原因", "回家探亲，一起吃个饭");
 		/**二：设置流程变量，使用javabean类型*/
 		/**
 		 * 当一个javabean（实现序列号）放置到流程变量中，要求javabean的属性不能再发生变化
@@ -63,10 +67,10 @@ ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 		 * 		private static final long serialVersionUID = 6757393795687480331L;
 		 *      同时实现Serializable 
 		 * */
-		Person p = new Person();
-		p.setId(20);
-		p.setName("翠花");
-		taskService.setVariable(taskId, "人员信息(添加固定版本)", p);
+//		Person p = new Person();
+//		p.setId(20);
+//		p.setName("翠花");
+//		taskService.setVariable(taskId, "人员信息(添加固定版本)", p);
 		
 		System.out.println("设置流程变量成功！");
 	}
@@ -91,6 +95,7 @@ ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 	}
 	
 	/**模拟设置和获取流程变量的场景*/
+	@Test
 	public void setAndGetVariables(){
 		/**与流程实例，执行对象（正在执行）*/
 		RuntimeService runtimeService = processEngine.getRuntimeService();
@@ -107,15 +112,21 @@ ProcessEngine processEngine = ProcessEngines.getDefaultProcessEngine();
 //		runtimeService.startProcessInstanceByKey(processDefinitionKey, variables);//启动流程实例的同时，可以设置流程变量，用Map集合
 //		taskService.complete(taskId, variables)//完成任务的同时，设置流程变量，用Map集合
 		
+		String executionId = "1201";
+		String variableName = "请假天数";
+		Collection<String> variableNames = new ArrayList<String>();
+		variableNames.add("请假原因");
+		
 		/**获取流程变量*/
-//		runtimeService.getVariable(executionId, variableName);//使用执行对象ID和流程变量的名称，获取流程变量的值
-//		runtimeService.getVariables(executionId);//使用执行对象ID，获取所有的流程变量，将流程变量放置到Map集合中，map集合的key就是流程变量的名称，map集合的value就是流程变量的值
-//		runtimeService.getVariables(executionId, variableNames);//使用执行对象ID，获取流程变量的值，通过设置流程变量的名称存放到集合中，获取指定流程变量名称的流程变量的值，值存放到Map集合中
+		Object a = runtimeService.getVariable(executionId , variableName);//使用执行对象ID和流程变量的名称，获取流程变量的值
+		Map<String, Object> map = runtimeService.getVariables(executionId);//使用执行对象ID，获取所有的流程变量，将流程变量放置到Map集合中，map集合的key就是流程变量的名称，map集合的value就是流程变量的值
+		Map<String, Object> map2 = runtimeService.getVariables(executionId, variableNames);//使用执行对象ID，获取流程变量的值，通过设置流程变量的名称存放到集合中，获取指定流程变量名称的流程变量的值，值存放到Map集合中
 		
 //		taskService.getVariable(taskId, variableName);//使用任务ID和流程变量的名称，获取流程变量的值
 //		taskService.getVariables(taskId);//使用任务ID，获取所有的流程变量，将流程变量放置到Map集合中，map集合的key就是流程变量的名称，map集合的value就是流程变量的值
 //		taskService.getVariables(taskId, variableNames);//使用任务ID，获取流程变量的值，通过设置流程变量的名称存放到集合中，获取指定流程变量名称的流程变量的值，值存放到Map集合中
 		
+		System.out.println();
 	}
 	
 	/**完成我的任务*/
