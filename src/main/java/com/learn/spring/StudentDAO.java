@@ -13,6 +13,7 @@ public interface StudentDAO {
     * a record in the Student and Marks tables.
     */
    public void create(String name, Integer age, Integer marks, Integer year);
+   public void create2(String name, Integer age, Integer marks, Integer year);
    /** 
     * This is the method to be used to list down
     * all the records from the Student and Marks tables.
