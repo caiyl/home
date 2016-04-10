@@ -4,33 +4,46 @@ import java.io.Serializable;
 
 /**
  * 用户实体类
+ * 
  * @author caiyl
  *
  */
-public class User implements Serializable{
+public class User implements Serializable {
 
 	/**
 	 * 
 	 */
 	private static final long serialVersionUID = 7490770661229119737L;
 
-	
+	/**
+	 * 主键
+	 */
+	private Integer id;
+
 	/**
 	 * 用户名
 	 */
-	private String username;
-	
+	private String name;
+
 	/**
 	 * 密码
 	 */
 	private String password;
 
-	public String getUsername() {
-		return username;
+	public Integer getId() {
+		return id;
 	}
 
-	public void setUsername(String username) {
-		this.username = username;
+	public void setId(Integer id) {
+		this.id = id;
+	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
 	}
 
 	public String getPassword() {
@@ -40,6 +53,5 @@ public class User implements Serializable{
 	public void setPassword(String password) {
 		this.password = password;
 	}
-	
 
 }
