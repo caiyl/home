@@ -17,4 +17,5 @@
 <select id="queryByName" parameterType="java.lang.String" resultType="home.domain.User">  
     SELECT * FROM t_user WHERE name=#{name}  
 </select>
+
 </mapper>
