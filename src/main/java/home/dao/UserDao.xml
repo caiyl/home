@@ -13,5 +13,5 @@
 </update>  
 <select id="query" parameterType="int" resultType="home.domain.User">  
     SELECT * FROM t_user WHERE id=#{id}  
-</select>  
+</select>
 </mapper>
