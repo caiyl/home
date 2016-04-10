@@ -22,7 +22,7 @@ public class LoginCtrl {
 	
 	@RequestMapping(value="/loginIn.do", method=RequestMethod.POST)
     public String loginIn(@ModelAttribute  User user) {
-        System.out.println(user.getUsername() + user.getPassword() );
+        System.out.println(user.getName() + user.getPassword() );
 		return "/index";
     }
 }
