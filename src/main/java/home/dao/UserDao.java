@@ -2,4 +2,6 @@ package home.dao;
 
 import home.domain.User;
 
-public interface UserDao extends BaseDao<User>{ }
+public interface UserDao extends BaseDao<User>{ 
+	public User queryByName(String name);
+}

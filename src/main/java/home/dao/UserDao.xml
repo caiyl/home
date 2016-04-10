@@ -13,5 +13,8 @@
 </update>  
 <select id="query" parameterType="int" resultType="home.domain.User">  
     SELECT * FROM t_user WHERE id=#{id}  
-</select>  
+</select>
+<select id="queryByName" parameterType="java.lang.String" resultType="home.domain.User">  
+    SELECT * FROM t_user WHERE name=#{name}  
+</select>
 </mapper>
