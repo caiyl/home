@@ -218,11 +218,25 @@
 			<artifactId>jsp-api</artifactId>
 			<version>2.2.1-b03</version>
 		</dependency>
+		<!-- shiro start -->
 		<dependency>
 			<groupId>org.apache.shiro</groupId>
 			<artifactId>shiro-core</artifactId>
 			<version>1.2.4</version>
 		</dependency>
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-web</artifactId>
+		    <version>1.2.4</version>
+		</dependency>
+		
+		<dependency>
+		    <groupId>org.apache.shiro</groupId>
+		    <artifactId>shiro-spring</artifactId>
+		    <version>1.2.4</version>
+		</dependency>
+		
+		<!-- shiro end -->
 
 		<dependency>
 			<groupId>commons-logging</groupId>

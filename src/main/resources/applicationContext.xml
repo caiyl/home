@@ -53,5 +53,48 @@
      -->  
     <tx:annotation-driven transaction-manager="txManager" />  
     
+    	<!-- ================ Shiro start ================ -->
+		<bean id="securityManager" class="org.apache.shiro.web.mgt.DefaultWebSecurityManager">
+			<property name="realm" ref="ShiroRealm" />
+		</bean>
+		
+		<!-- 項目自定义的Realm -->
+	    <bean id="ShiroRealm" class="home.shrio.ShiroRealm" ></bean>
+		
+		<!-- Shiro Filter -->
+		<bean id="shiroFilter" class="org.apache.shiro.spring.web.ShiroFilterFactoryBean">
+			<property name="securityManager" ref="securityManager" />
+			
+			<property name="loginUrl" value="/login.do" />
+			
+			<property name="successUrl" value="/main/index" />
+			
+			<property name="unauthorizedUrl" value="/login_toLogin" />
+			
+			<property name="filterChainDefinitions">
+				<value>
+				/assets/** 				    = anon
+				/css/** 			        = anon
+				/fonts/** 			        = anon
+	           	/login.do 					= anon
+	           	/login.jsp 					= anon
+	           	/loginIn.do	 	     		= anon
+	           	/**							= authc
+				</value>
+			</property>
+		</bean>
+		
+		
+<!-- 		<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager"> 
+超时时间 
+    <property name="globalSessionTimeout" value="1000"/> 
+    <property name="sessionDAO" ref="shiroSessionDao"/> 
+    <property name="sessionIdCookie" ref="sharesession"/> 
+    定时检查失效的session 
+     <property name="sessionValidationSchedulerEnabled" value="true" /> 
+</bean> -->
+		
+	<!-- ================ Shiro end ================ -->
+    
     	<import resource="classpath:activiti-context.xml"/>
 </beans>

@@ -7,6 +7,9 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import org.apache.shiro.SecurityUtils;
+import org.apache.shiro.authc.AuthenticationException;
+import org.apache.shiro.authc.UsernamePasswordToken;
+import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -19,6 +22,7 @@ import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import home.domain.User;
 import home.service.UserService;
+import home.util.Const;
 
 
 
@@ -34,8 +38,6 @@ public class LoginCtrl {
 	
 	@RequestMapping("/login.do")
     public String  login(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
-		
-        System.out.println("hello Word----1222-2222------------------------");
         return "login";
     }
 	
@@ -51,22 +53,30 @@ public class LoginCtrl {
 	@RequestMapping(value="/loginIn.do", method=RequestMethod.POST)
     public String loginIn(@ModelAttribute  User user,RedirectAttributes attr) throws ServletException, IOException {
 		User u = userService.getUserByName(user.getName());
-		
-		Subject currentUser = SecurityUtils.getSubject();  
-		
-		
+		String loginInfo = "";
+		String ret = "";
 		if(u != null && u.getPassword().equals(user.getPassword())){
-//			request.setAttribute("name", u.getName());
-//			request.getRequestDispatcher("/index.jsp").forward(request, response);
-			attr.addAttribute("param", u.getName());
-            return "index";
-		}else{
-//			request.getRequestDispatcher("/login.do").forward(request, response);
-//			attr.addAttribute("param", "你好");
 			
-			//redirect表示重定向
-            return "redirect:/login.do";
+			Subject subject = SecurityUtils.getSubject();  
+			Session session = subject.getSession();
+			session.setTimeout(10000);
+			UsernamePasswordToken token = new UsernamePasswordToken(u.getName(), u.getPassword()); 
+			subject.login(token); 
+			
+			try { 
+		        subject.login(token); 
+		        session.setAttribute(Const.SESSION_USER, user);
+		    } catch (AuthenticationException e) { 
+		    	loginInfo = "身份验证失败！";
+		    }
+			attr.addAttribute("param", u.getName());
+			ret = "index";
+		}else{
+			loginInfo = "usererror";
+			ret = "login";
 		}
+		
+		return ret;
 		
 	}
 }
