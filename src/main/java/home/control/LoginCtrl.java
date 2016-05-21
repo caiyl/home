@@ -59,7 +59,7 @@ public class LoginCtrl {
 			
 			Subject subject = SecurityUtils.getSubject();  
 			Session session = subject.getSession();
-			session.setTimeout(10000);
+			session.setTimeout(1800000);
 			UsernamePasswordToken token = new UsernamePasswordToken(u.getName(), u.getPassword()); 
 			subject.login(token); 
 			

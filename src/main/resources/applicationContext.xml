@@ -86,13 +86,11 @@
 		
 		
 <!-- 		<bean id="sessionManager" class="org.apache.shiro.web.session.mgt.DefaultWebSessionManager"> 
-超时时间 
-    <property name="globalSessionTimeout" value="1000"/> 
-    <property name="sessionDAO" ref="shiroSessionDao"/> 
-    <property name="sessionIdCookie" ref="sharesession"/> 
-    定时检查失效的session 
-     <property name="sessionValidationSchedulerEnabled" value="true" /> 
-</bean> -->
+	    	<property name="globalSessionTimeout" value="10000"/> 
+			    <property name="sessionDAO" ref="shiroSessionDao"/> 
+	    	<property name="sessionIdCookie" ref="sharesession"/> 
+	     	<property name="sessionValidationSchedulerEnabled" value="true" /> 
+		</bean> -->
 		
 	<!-- ================ Shiro end ================ -->
     

@@ -8,7 +8,6 @@
 			+ ":" + request.getServerPort() //端口
 			+ request.getContextPath() + "/";//根路径
 %>
-<html>
 <!DOCTYPE html>
 <html lang="en" class="no-js">
 

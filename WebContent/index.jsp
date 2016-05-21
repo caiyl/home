@@ -30,6 +30,29 @@ body {
 </head>
 <body>
 
-<2222222
+2222222
+
+<shiro:hasRole name="admin">　
+　　<a >admin</a>　
+　　</shiro:hasRole>
+<shiro:hasRole name="teacher">　
+　　<a >teacher</a>　
+　　</shiro:hasRole>
+<shiro:hasRole name="student">　
+　　<a >student</a>　
+　　</shiro:hasRole>
+
+
+
+<shiro:hasPermission name="all">　
+　　<a >admin:all</a>　
+　　</shiro:hasPermission>
+<shiro:hasPermission name="writeread">　
+　　<a >teacher:writeread</a>　
+　　</shiro:hasPermission>
+<shiro:hasPermission name="read">　
+　　<a >student:read</a>　
+　　</shiro:hasPermission>
+
 </body>
 </html>
