@@ -13,7 +13,9 @@
         http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 	<mvc:annotation-driven />
 	<mvc:default-servlet-handler/>
-	<context:component-scan base-package="home" />
+	<context:component-scan base-package="home" >
+		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Service" /> 
+	</context:component-scan>
 	
 		<!-- 对静态资源文件的访问  restful-->     
 	<mvc:resources mapping="/assets/**" location="/,/assets/" />

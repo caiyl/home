@@ -1,19 +1,19 @@
 package home.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.history.HistoricTaskInstance;
-import org.activiti.engine.task.Comment;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import home.dao.UserDao;
 import home.domain.User;
 import home.service.UserService;
 
 @Service
+@Transactional
 public class UserServiceImpl implements UserService {
 	@Autowired
 	private UserDao userDao;
@@ -50,6 +50,24 @@ public class UserServiceImpl implements UserService {
 		}
 
 		return userDao.queryByName(name);
+	}
+
+	@Override
+	@Transactional
+	public int addUser(User user) {
+		
+		
+        User user2 = new User();
+        
+        user2.setId(35);
+        user2.setName("me");
+        user2.setPassword("1");
+        user2.setRoleId(1);
+		
+		userDao.insertSelective(user2);
+//		int a = 4/0;
+		return 1;
+		
 	}
 
 }

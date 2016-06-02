@@ -32,9 +32,18 @@ public class UserCtrl {
 		
         System.out.println("hello Word----1222-2222------------------------");
         
+        User user = new User();
+        
+        user.setId(31);
+        user.setName("me");
+        user.setPassword("1");
+        user.setRoleId(1);
+        
+		userService.addUser(user );
+        
         List<User> list = new ArrayList<User>();
         for(int i = 0; i < 10; i++){
-        	User user = new User();
+            user = new User();
         	user.setId(i);
         	user.setName(i+"name");
         	list.add(user);

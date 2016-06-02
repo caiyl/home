@@ -29,6 +29,18 @@ public class User implements Serializable {
 	 * 密码
 	 */
 	private String password;
+	
+	private Integer roleId;
+	
+	
+
+	public Integer getRoleId() {
+		return roleId;
+	}
+
+	public void setRoleId(Integer roleId) {
+		this.roleId = roleId;
+	}
 
 	public Integer getId() {
 		return id;
