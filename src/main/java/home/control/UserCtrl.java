@@ -37,7 +37,7 @@ public class UserCtrl {
         user.setId(31);
         user.setName("me");
         user.setPassword("1");
-        user.setRoleId(1);
+        user.setRoleid(1);
         
 		userService.addUser(user );
         

@@ -8,15 +8,16 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import home.dao.UserDao;
 import home.domain.User;
+import home.domain.mapper.UserMapper;
+import home.service.AbstractService;
 import home.service.UserService;
 
 @Service
 @Transactional
-public class UserServiceImpl implements UserService {
+public class UserServiceImpl extends AbstractService<User, Integer> implements UserService {
 	@Autowired
-	private UserDao userDao;
+	private UserMapper userMapper;
 	@Autowired
 	private HistoryService historyService;
 
@@ -26,13 +27,11 @@ public class UserServiceImpl implements UserService {
 		// 查询数据
 		user.setName("Jessica");
 		user.setPassword("123");
-		System.out.println(userDao.query(1));
-		return userDao.query(1);
+		return user;
 	}
 
 	public User getUser(Integer id) {
-		System.out.println(userDao.query(id));
-		return userDao.query(1);
+		return selectByPrimaryKey(id);
 	}
 
 	public User getUserByName(String name) {
@@ -48,8 +47,9 @@ public class UserServiceImpl implements UserService {
 				// 获取批注信息
 			}
 		}
-
-		return userDao.queryByName(name);
+		
+		
+		return selectByPrimaryKey(1);
 	}
 
 	@Override
@@ -62,11 +62,16 @@ public class UserServiceImpl implements UserService {
         user2.setId(35);
         user2.setName("me");
         user2.setPassword("1");
-        user2.setRoleId(1);
-		
-		userDao.insertSelective(user2);
+        user2.setRoleid(1);
+		insertSelective(user2);
 //		int a = 4/0;
 		return 1;
+		
+	}
+
+	@Override
+	public void setBaseMapper() {
+		// TODO Auto-generated method stub
 		
 	}
 

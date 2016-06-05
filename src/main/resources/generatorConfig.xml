@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE generatorConfiguration
+  PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN"
+  "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
+  
+<!-- mybaits生成实体类配置 -->  
+
+<generatorConfiguration>
+  <classPathEntry location="D:\mvn\repository\mysql\mysql-connector-java\5.1.9\mysql-connector-java-5.1.9.jar" />
+
+  <context id="MysqlTables" targetRuntime="MyBatis3">
+    <jdbcConnection driverClass="com.mysql.jdbc.Driver"
+        connectionURL="jdbc:mysql://localhost:3306/home"
+        userId="root"
+        password="root">
+    </jdbcConnection>
+
+    <javaTypeResolver >
+      <property name="forceBigDecimals" value="false" />
+    </javaTypeResolver>
+    <!-- 实体定义地址 -->
+    <javaModelGenerator targetPackage="home.domain" targetProject="home\src\main\java">
+      <property name="enableSubPackages" value="true" />
+      <property name="trimStrings" value="true" />
+    </javaModelGenerator>
+    <!-- sql的配置文件定义 -->
+    <sqlMapGenerator targetPackage="home.domain.mapper"  targetProject="home\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </sqlMapGenerator>
+    <!-- DAO定义 XMLMAPPER是xml的配置方式，还有ANNOTabelMapper的是注解方式 -->
+    <javaClientGenerator type="XMLMAPPER" targetPackage="home.domain.mapper"  targetProject="home\src\main\java">
+      <property name="enableSubPackages" value="true" />
+    </javaClientGenerator>
+    
+    <table tableName="T_USER" domainObjectName="User"  enableCountByExample="false" enableUpdateByExample="false" enableDeleteByExample="false" enableSelectByExample="false" selectByExampleQueryId="false">
+    </table>
+
+
+  </context>
+</generatorConfiguration>
