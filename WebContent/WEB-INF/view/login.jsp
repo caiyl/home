@@ -29,7 +29,7 @@
         <!--[if lt IE 9]>
             <script src="assets/js/html5.js"></script>
         <![endif]-->
-<script src="assets/js/jquery-1.8.2.min.js"></script>
+
 
 <style type="text/css">
   .html-body-overflow
@@ -62,7 +62,7 @@
         </div>
 		
         <!-- Javascript -->
-        <script src="<%=basePath %>assets/js/jquery-1.8.2.min.js" ></script>
+        <script src="<%=basePath %>assets/js/jquery-1.9.1.min.js"></script>
         <script src="<%=basePath %>assets/js/supersized.3.2.7.min.js" ></script>
         <script src="<%=basePath %>assets/js/supersized-init.js" ></script>
         <script src="<%=basePath %>assets/js/scripts.js" ></script>

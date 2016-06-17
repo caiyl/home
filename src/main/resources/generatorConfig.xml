@@ -28,7 +28,7 @@
       <property name="enableSubPackages" value="true" />
     </sqlMapGenerator>
     <!-- DAO定义 XMLMAPPER是xml的配置方式，还有ANNOTabelMapper的是注解方式 -->
-    <javaClientGenerator type="XMLMAPPER" targetPackage="home.domain.mapper"  targetProject="home\src\main\java">
+    <javaClientGenerator type="XMLMAPPER" targetPackage="home.dao"  targetProject="home\src\main\java">
       <property name="enableSubPackages" value="true" />
     </javaClientGenerator>
     

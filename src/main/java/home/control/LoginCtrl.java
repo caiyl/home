@@ -1,6 +1,8 @@
 package home.control;
 
 import java.io.IOException;
+import java.io.InputStream;
+import java.io.PrintWriter;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
@@ -11,6 +13,9 @@ import org.apache.shiro.authc.AuthenticationException;
 import org.apache.shiro.authc.UsernamePasswordToken;
 import org.apache.shiro.session.Session;
 import org.apache.shiro.subject.Subject;
+import org.dom4j.Document;
+import org.dom4j.DocumentHelper;
+import org.dom4j.Element;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -37,7 +42,12 @@ public class LoginCtrl {
 	private  HttpServletResponse response;
 	
 	@RequestMapping("/login.do")
-    public String  login(@RequestParam(value="name", required=false, defaultValue="World") String name, Model model) {
+    public String  login(HttpServletRequest request, HttpServletResponse response) {
+		String s = request.getSession().getId();
+		System.out.println(s);
+//		request.getSession().setAttribute("user", s);
+		String u = (String)request.getSession().getAttribute("user");
+		System.err.println("user"+u);
         return "login";
     }
 	

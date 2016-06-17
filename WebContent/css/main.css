@@ -7,3 +7,137 @@ footer {
 	width: auto;
 	text-align: center;
 }
+
+/* body 的第一个div */
+.content-wrap {
+	padding: 30px;
+	padding-top: 30px;
+}
+
+body{
+	background-color: #EEF9FD;
+}
+
+/* 重写bootstrap默认的样式 start*/
+.navbar-background-color{
+	background-color: #0F87C1;
+	color: #FFF
+}
+
+.navbar-default .navbar-nav>li>a{
+	color:#FFF;
+	font-size: 18px;
+}
+
+.navbar-default .navbar-nav>li>a:hover{
+	color:#D9EDF7;
+}
+
+
+.navbar-default .navbar-nav>li>a{
+	color:#FFF;
+	font-size: 18px;
+}
+
+.navbar-default .navbar-brand {
+    color: #FFF;
+}
+.navbar-default .navbar-brand :hover{
+	color:#D9EDF7;
+}
+
+/* 重写bootstrap默认的样式 end*/
+
+/*----------页面翻页区style------------*/
+.pagecontent {
+	width: 100%;
+	height: 25px;
+	line-height: 25px;
+	padding: 10px 0;
+}
+
+.operates {
+	display: inline;
+	float: left;
+}
+
+.pagebox {
+	display: inline;
+	float: right;
+}
+/*--------翻页按钮---------*/
+#goPage {
+	background-color: #78d029;
+	border: 0;
+	width: 26px;
+	height: 23px;
+	color: #fff;
+	cursor: pointer;
+	border-radius: 2px;
+}
+
+#goPage:hover {
+	background-color: #ff9000;
+}
+
+.firstpage, .uppage, .nextpage, .lastpage {
+	height: 23px;
+	line-height: 22px;
+	padding: 0 15px 0 25px;
+	color: #456a8a;
+	border: 1px solid #c4d4e3;
+	border-radius: 2px;
+	cursor: pointer;
+	margin-left: 2px;
+}
+
+.firstpage:hover, .uppage:hover, .nextpage:hover, .lastpage:hover {
+	background-color: #6fb8ff;
+	border: 1px solid #6fb8ff;
+	color: #fff;
+}
+
+.firstpage {
+	background: #eef7ff url(../images/database/first.png) no-repeat 5px 3px;
+}
+
+.uppage {
+	background: #eef7ff url(../images/database/previous.png) no-repeat 5px
+		3px;
+}
+
+.nextpage {
+	background: #eef7ff url(../images/database/next.png) no-repeat 5px 3px;
+}
+
+.lastpage {
+	background: #eef7ff url(../images/database/last.png) no-repeat 5px 3px;
+}
+
+.firstpage:disabled {
+	color: #aaa;
+	background: #f0f0f0 url(../images/database/first-d.png) no-repeat 5px
+		3px;
+}
+
+.uppage:disabled {
+	color: #aaa;
+	background: #f0f0f0 url(../images/database/previous-d.png) no-repeat 5px
+		3px;
+}
+
+.nextpage:disabled {
+	color: #aaa;
+	background: #f0f0f0 url(../images/database/next-d.png) no-repeat 5px 3px;
+}
+
+.lastpage:disabled {
+	color: #aaa;
+	background: #f0f0f0 url(../images/database/last-d.png) no-repeat 5px 3px;
+}
+
+body {
+   /*  padding: 15px; */
+    background: none repeat scroll 0 0 #eef9fd;
+   /*  border-radius: 0 0 4px 4px; */
+}

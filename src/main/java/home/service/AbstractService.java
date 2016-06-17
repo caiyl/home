@@ -8,6 +8,8 @@ import java.util.Map;
 import home.dao.BaseMapper;
 
 public abstract class AbstractService<T, ID extends Serializable> implements BaseService<T, ID> {
+	
+	
 	private BaseMapper<T, ID> baseMapper;
 
 	public void setBaseMapper(BaseMapper<T, ID> baseMapper) {

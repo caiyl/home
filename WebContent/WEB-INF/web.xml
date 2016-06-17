@@ -27,8 +27,7 @@
         <servlet-name>home</servlet-name>
         <url-pattern>/</url-pattern>
     </servlet-mapping>
-
-	<!-- spring mvc start -->
+	<!-- spring mvc end -->
     
     <!-- Shiro filter start -->
 	<filter>

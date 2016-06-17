@@ -13,57 +13,61 @@
 
 <head>
 <link rel="stylesheet" href="css/bootstrap.min.css">
-<script src="assets/js/jquery-1.8.2.min.js"></script>
+<link rel="stylesheet" href="css/home-default.css">
+<link rel="stylesheet" href="css/public-style.css">
+<link rel="stylesheet" href="css/style.css">
+<link rel="stylesheet" href="css/main.css">
+<script src="assets/js/jquery-1.9.1.min.js"></script>
+<script src="assets/js/lang.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
+<script src="assets/pagejs/system/userlist.js"></script>
+
 
 </head>
 
 <body>
-	<table class="table  table-striped table-bordered table-hover" >
-	<thead>
-	<tr>
-		<td align="center">用户id</td>
-		<td align="center">用户名</td>
-		<td align="center">编辑</td>
-	</tr>
-	</thead>
-		<c:forEach items="${userList}" var="user">
-			<tr>
-				<td align="center">${user.id}</td>
-				<td align="center">${user.name}</td>
-				<td align="center">${user.name}</td>
-			</tr>
-		</c:forEach>
-	</table>
-	
-	
-	<nav>
-  <ul class="pagination">
-    <li>
-      <a href="#" aria-label="Previous">
-        <span aria-hidden="true">&laquo;</span>
-      </a>
-    </li>
-    <li class="active"><a href="#">1</a></li>
-    <li class=""><a href="#">2</a></li>
-    <li><a href="#">3</a></li>
-    <li><a href="#">4</a></li>
-    <li><a href="#">5</a></li>
-    <li>
-      <a href="#" aria-label="Next">
-        <span aria-hidden="true">&raquo;</span>
-      </a>
-    </li>
-  </ul>
-</nav>
 
-<nav>
-  <ul class="pager">
-    <li><a href="#">Previous</a></li>
-    <li><a href="#">Next</a></li>
-  </ul>
-</nav>
+<div class="content-wrap">
 	
+	<table
+            class="table table-hover table-condensed table-bordered table-striped table-page-position">
+        <thead class="cf">
+        <tr>
+            <th width="40px">选择</th>
+            <th>用户id</th>
+            <th>用户名</th>
+            <th>编辑</th>
+        </tr>
+        </thead>
+        <tbody id="tabbody" >
+
+        </tbody>
+    </table>
+
+
+	<!-- 分页 -->
+	<div class="pagecontent">
+		<div class="pagebox">
+			共<font id="totalnum" color="red"></font>条记录 第<font id="nowpage"
+				color="red"></font>页 共<font id="totalpage" color="red"></font>页 <input
+				type="text" size="1" style="color: #000" name="page_no" id="page_no"
+				value="" /> <input type="button" value="go" id="goPage"
+				onClick="go();" /> 每页<select onchange="changePerPage();"
+				id="pageSize">
+				<option value="10">10</option>
+				<option value="20">20</option>
+				<option value="20">50</option>
+			</select> <input type="button" id="firstpage" class="firstpage"
+				onclick="firstPage();" value="首页" /> <input type="button"
+				id="uppage" class="uppage" onclick="uppage();" value="上页 " /> <input
+				type="button" id="nextpage" class="nextpage" onclick="nextPage();"
+				value="下页 " /> <input type="button" id="lastpage" class="lastpage"
+				onclick="lastPage();" value="尾页" />
+		</div>
+	</div>
+
+</div>
+
 </body>
 
 </html>

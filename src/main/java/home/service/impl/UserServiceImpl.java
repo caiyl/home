@@ -2,14 +2,16 @@ package home.service.impl;
 
 import java.util.List;
 
+import javax.annotation.PostConstruct;
+
 import org.activiti.engine.HistoryService;
 import org.activiti.engine.history.HistoricTaskInstance;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import home.dao.UserMapper;
 import home.domain.User;
-import home.domain.mapper.UserMapper;
 import home.service.AbstractService;
 import home.service.UserService;
 
@@ -20,6 +22,7 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 	private UserMapper userMapper;
 	@Autowired
 	private HistoryService historyService;
+	
 
 	public User getUser() {
 		// TODO Auto-generated method stub
@@ -59,11 +62,9 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 		
         User user2 = new User();
         
-        user2.setId(35);
-        user2.setName("me");
         user2.setPassword("1");
         user2.setRoleid(1);
-		insertSelective(user2);
+//		insertSelective(user2);
 //		int a = 4/0;
 		return 1;
 		
@@ -71,8 +72,11 @@ public class UserServiceImpl extends AbstractService<User, Integer> implements U
 
 	@Override
 	public void setBaseMapper() {
-		// TODO Auto-generated method stub
-		
+	}
+	
+	@PostConstruct
+	public void init() {
+		super.setBaseMapper(userMapper);
 	}
 
 }
