@@ -30,7 +30,7 @@
 <div class="content-wrap">
 	
 	<table
-            class="table table-hover table-condensed table-bordered table-striped table-page-position">
+            class="formtable">
         <thead class="cf">
         <tr>
             <th width="40px">选择</th>

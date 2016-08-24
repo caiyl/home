@@ -32,7 +32,7 @@ import java.io.Serializable;
 /**
  * 组件的基础类
  *
- * @author liuzh
+ * @author liuzh 
  */
 public abstract class Basic<T> implements Serializable {
     private static final long serialVersionUID = 1L;
